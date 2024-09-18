@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Menü</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+
+    <script src="js/turn.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(270deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+            background-size: 800% 800%;
+            animation: animatedBG 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation; 
+        }
+
+        @keyframes animatedBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .notebook {
+            margin-top: 110px;
+            width: 100%;
+            max-width: 400px;
+            height: 65vh;
+            background-color: #252525;
+            border: 1px solid #f8f8f8;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+            position: relative;
+            overflow: hidden;
+        }
+        #flipbook {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #flipbook .page,
+        #flipbook .hard {
+            display: block;
+            height: 100%;
+            background-color: #252525;
+            border: 1px solid #ffffff;
+            box-sizing: border-box;
+        }
+        
+        .cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80%;
+            padding: 5px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .cover img {
+            max-width: 120%;
+            height: auto;
+        }
+        .cover h1 {
+            margin-top: 0px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .cover a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .cover a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            height: 100%;          
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .content h1 {
+            margin: 0; 
+        }
+        @media (max-width: 1000px) {
+            .cover h1 {
+                font-size: 18px;
+            }
+            .cover a {
+                font-size: 16px;
+            }
+            li strong {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="notebook">
+    <div id="flipbook">
+        <div class="hard">
+            <div class="cover">
+                <img src="images/ozyysblack.png" alt="Restoran Logosu">
+                <h1 style="font-size: medium;" >MON-THURS: 11AM - 11PM</h1>
+                <h1 style="font-size: medium;">FRI - SAT: 11AM - 3AM</h1>
+                <h1 style="font-size: medium;">SUN: 11AM - 11PM</h1>
+
+                <a href="https://www.instagram.com/ozzysburgers/">
+                    <img src="images/instalogo2.png" alt="Instagram">
+                    @ozzysburgers
+                </a>
+            </div>
+        </div>
+        
+        <!-- #1. sayfa -->
+        <div class="page">
+            <h1 style="color: #ffffff; font-size: smaller; text-align: center; position: relative; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+                <span style="flex-grow: 0; padding: 0 10px;">BURGERS</span>
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-left: 10px;"></span>
+            </h1>
+            
+            <div class="content" style="display: flex; align-items: center; margin-top: 30px;">
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-right: 130px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-right: -48px; margin-top: -47px;">hamburger no1 içindekiler:</h1>
+                
+                
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-right: 130px; margin-top: 100px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-right: -48px; margin-top: -50px;">hamburger no1 içindekiler:</h1>
+
+            </div>
+            
+        </div>
+        
+        <!-- #2. sayfa -->
+        <div class="page">
+            <h1 style="color: #ffffff; font-size: smaller; text-align: center; position: relative; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+                <span style="flex-grow: 0; padding: 0 10px;">BURGERS</span>
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+            </h1>
+            
+            <div class="content" style="display: flex; align-items: center; margin-top: 30px;">
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-left: 130px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-left: -50px; margin-top: -47px;">hamburger no1 içindekiler:</h1>
+            </div>
+        </div>
+
+        <!-- #3. sayfa -->
+        <div class="page">
+            <h1 style="color: #ffffff; font-size: smaller; text-align: center; position: relative; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+                <span style="flex-grow: 0; padding: 0 10px;">BURGERS</span>
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-left: 10px;"></span>
+            </h1>
+            
+            <div class="content" style="display: flex; align-items: center; margin-top: 30px;">
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-right: 130px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-right: -48px; margin-top: -47px;">hamburger no1 içindekiler:</h1>
+            </div>
+        </div>
+
+        <!-- #4. sayfa -->
+        <div class="page">
+            <h1 style="color: #ffffff; font-size: smaller; text-align: center; position: relative; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+                <span style="flex-grow: 0; padding: 0 10px;">BURGERS</span>
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+            </h1>
+            
+            <div class="content" style="display: flex; align-items: center; margin-top: 30px;">
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-left: 130px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-left: -65px; margin-top: -47px;">hamburger no1 içindekiler:</h1>
+            </div>
+        </div>
+        
+        <!-- #5. sayfa -->
+        <div class="page">
+            <h1 style="color: #ffffff; font-size: smaller; text-align: center; position: relative; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+                <span style="flex-grow: 0; padding: 0 10px;">BURGERS</span>
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-left: 10px;"></span>
+            </h1>
+            
+            <div class="content" style="display: flex; align-items: center; margin-top: 30px;">
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-right: 130px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-right: -48px; margin-top: -47px;">hamburger no1 içindekiler:</h1>
+            </div>
+        </div>
+
+        <!-- #6. sayfa -->
+        <div class="page">
+            <h1 style="color: #ffffff; font-size: smaller; text-align: center; position: relative; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+                <span style="flex-grow: 0; padding: 0 10px;">BURGERS</span>
+                <span style="flex-grow: 1; height: 1px; background-color: white; margin-right: 10px;"></span>
+            </h1>
+            
+            <div class="content" style="display: flex; align-items: center; margin-top: 30px;">
+                <img src="images/classicburger.png" style="width: 50px; height: auto; margin-left: 130px;">
+                <h1 style="font-size: x-small; color: #ffffff; margin-left: -65px; margin-top: -47px;">hamburger no1 içindekiler:</h1>
+            </div>
+        </div>
+        
+       
+        <div class="hard">
+            <div class="back-cover">
+                
+                <h1>Thank You!</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        $("#flipbook").turn({
+            width: $(".notebook").width(),
+            height: $(".notebook").height(),
+            autoCenter: true,
+            display: 'double',  
+            acceleration: true, 
+            gradients: false, 
+            duration: 400, 
+            elevation: 30,
+            swipe: true,
+        });
+
+        $(window).resize(function() {
+            $("#flipbook").turn('size', $(".notebook").width(), $(".notebook").height());
+        });
+    });
+</script>
+
+</body>
+</html>
