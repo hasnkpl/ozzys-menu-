@@ -1,7 +1,7 @@
 import qrcode
 
 
-menu_url = "https://hasnkpl.github.io/ozzys-menu-/"
+menu_url = "https://ozzys-menu-.com/index.html?v=2"
 
 
 qr = qrcode.QRCode(
